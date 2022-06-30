@@ -15,9 +15,9 @@ class TrainTableSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
         $train = new Train();
         $train->company = 'Trenitalia';
-        $train->departure_station = 'Stazione di Foggia';
-        $train->arrival_station = 'Stazione di Bolzano';
-        $train->arrival_time = $faker -> dateTimeBetween('-0.5 day', '+0.5 day');
+        $train->departure_station = $faker->state();
+        $train->arrival_station = $faker->state();
+        $train->arrival_time = $faker -> time('H:i');
         $train->departure_time = $faker -> time('H:i');
         $train->train_code = rand(10000, 99999);
         $train->wagon_number = $faker->numberBetween(1, 22);
@@ -26,4 +26,5 @@ class TrainTableSeeder extends Seeder
         $train->save();
         }
     }
+
 }
